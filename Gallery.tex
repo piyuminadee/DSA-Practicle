@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define  MAXSTACK  10
+
+typedef int stackEntry;
+typedef enum {FALSE, TRUE} Boolean;
+typedef struct
+	{
+        int top;
+        stackEntry entry[MAXSTACK];
+	}Stack;
+
+
+void pushStack();
+
+
+
+
+//CREATE THE STACK
+void createStack(Stack*s){
+    s -> top = -1;
+    //printf("stack created");
+    }
+
+
+
+
+//whether stack is full or not
+Boolean  isStackEmpty(const Stack *s)
+{
+	return (s->top == -1);
+}
+
+
+
+
+//whether stack is empty or not
+Boolean isStackFull(const Stack *s)
+{
+	return (s->top == MAXSTACK - 1);
+}
+
+
+
+
+//PUSH CODE
+void pushStack(stackEntry item, Stack*s){
+    if(!isStackFull(s)){
+        s->entry[++s->top]=item;  //s.entry
+
+    }
+    else{
+        printf("Stack is Full !!!");
+        exit(1);
+
+    }
+}
+
+//POP CODE
+
+void pop(stackEntry *item, Stack *s)
+{
+    	if(!isStackEmpty(s))
+        		*item=s->entry[s->top--];
+    	else{
+        		printf("---Stack is Empty !!! ---");
+        		exit(1);
+    	}
+}
+
+int main()
+{
+    Stack myArray;
+    int item;
+
+    createStack(&myArray);
+    //Boolean  isStackEmpty(const Stack *s);
+    //Boolean isStackFull(const Stack *s);
+    for(int i=0; i<3; i++)
+    {
+
+       scanf("%d", &item);
+       
+     //printf("%d\n",item);
+     pushStack(item, &myArray);
+    }
+     pop(&item, &myArray);
+     printf("%d\n",item);
+    //pushStack(3, &myArray);
+
+
+
+
+}
