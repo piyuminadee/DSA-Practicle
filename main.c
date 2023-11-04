@@ -23,7 +23,7 @@ void creatStack(Stack*s)
 {
 
     s->top = -1;   //eg: ptr->rollno = 43;
-    //Assign the value 1 into top
+    //Assign the value -1 into top
     printf("%d\n",s->top);
     printf("StackCreated\n");
 }
